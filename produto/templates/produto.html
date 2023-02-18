@@ -27,7 +27,7 @@
 
     <h1 class="titulo subTituloProduto">Escolha seus adicionais: </h1>
 
-    <form method="POST" action="#">{% csrf_token %}
+    <form method="POST" action="{% url 'add_carrinho' %}">{% csrf_token %}
     <input name="id" style="display: none;" type="text" value="{{produto.id}}">
     {% for i in produto.adicionais.all %}
     <h1>{{i}}</h1>
