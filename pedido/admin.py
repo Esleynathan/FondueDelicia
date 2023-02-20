@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import ItemPedido, Pedido
+from .models import ItemPedido, Pedido, CupomDesconto
 from django.http import HttpResponse
 # Register your models here.
 
@@ -18,3 +18,8 @@ class PedidoAdmin(admin.ModelAdmin):
     readonly_fields = ('usuario', 'total', 'troco', 'pagamento', 'ponto_referencia', 'data', 'cep', 'rua', 'numero', 'bairro', 'telefone')
     list_filter = ('entregue',)
 admin.site.register(Pedido, PedidoAdmin)
+
+@admin.register(CupomDesconto)
+class CupomDescontoAdmin(admin.ModelAdmin):
+    list_display = ('codigo', 'desconto', 'ativo')
+    readonly_fields=('usos',)
